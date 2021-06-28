@@ -39,7 +39,7 @@ namespace UWPMusicLibrary
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
            // string context = "musics";
-            this.Frame.Navigate(typeof(AllMusicDisplayPage));
+            this.MainFrame.Navigate(typeof(AllMusicDisplayPage));
         }
 
         private void CollectionViewFlyout_Click(object sender, RoutedEventArgs e)

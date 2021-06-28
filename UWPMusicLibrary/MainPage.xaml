@@ -47,7 +47,7 @@
                                 Click="CollectionViewFlyout_Click"
                                 />
                 <MenuFlyoutItem x:Name="CollectionNewFlyout"
-                                Text="View"
+                                Text="Add"
                                 Click="CollectionNewFlyout_Click"/>
 
             </MenuBarItem>
