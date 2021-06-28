@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="UWPMusicLibrary.AllMusicDisplayPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPMusicLibrary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:UWPMusicLibrary.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="0,30,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0">
+            <TextBlock x:Name="TitleTextBlock"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Text="All Music" 
+                       FontWeight="Bold" 
+                       FontSize="30" 
+                       FontFamily="Verdana" 
+                       Width="800" 
+                       Height="45"
+                       HorizontalTextAlignment="Center"
+                       />
+        </RelativePanel>
+        <GridView Grid.Row="1"
+                  IsTapEnabled="True"
+                  ItemsSource="{x:Bind MusicList}"
+                  Name="AllMusicGrid">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="model:Song">
+                    <Image x:Name="MusicThubnailImage"
+                           Width="200"
+                           Tapped="MusicThubnailImage_Tapped"
+                           Source="{x:Bind Thumbnail}"/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            
+        </GridView>
+    </Grid>
+</Page>

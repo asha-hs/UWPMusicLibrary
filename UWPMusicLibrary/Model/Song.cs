@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media;
 
 namespace UWPMusicLibrary.Model
 {
@@ -13,5 +14,7 @@ namespace UWPMusicLibrary.Model
         public string Album { get; set; }
         
         public string FilePath { get; set; }
+
+        public ImageSource Thumbnail { get; set; }
     }
 }

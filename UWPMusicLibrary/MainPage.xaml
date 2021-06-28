@@ -10,36 +10,49 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             
         </Grid.RowDefinitions>
-        <MediaElement Name="MusicLibraryMediaElement" AutoPlay="True"/>
-        <TextBlock Grid.Row ="0" Text="Music Library" Name="TitleText"/>
-        <ListView Grid.Row ="1" ItemsSource="{x:Bind MusicList}" IsItemClickEnabled="True"
-                  ItemClick="ListView_ItemClick">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="10,10,0,10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="File Name:" />
-                            <TextBlock Text="{Binding FileName}"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Artist"></TextBlock>
-                            <TextBlock Text="{Binding Artist}"/>
-                        </StackPanel>
-                        <StackPanel>
-                            <TextBlock Text="Album"/>
-                            <TextBlock Text="{Binding Album}"/>
-                        </StackPanel>
-                        <StackPanel>
-                            <TextBlock Text="File Path"/>
-                            <TextBlock Text="{Binding FilePath}"/>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Border Grid.Row="0"></Border>
+        <MenuBar Grid.Row ="0" VerticalAlignment="Top"
+                 Height="35"
+                 Width="330"
+                 HorizontalAlignment="Left"
+                 BorderThickness="20"
+                 BorderBrush="White"
+                 CornerRadius="5"
+                 >
+            <MenuBarItem Name="MusicsMenuItem"
+                         Title="Musics"
+                         Width="100"
+                         FontFamily="Verdana"
+                         AutomationProperties.HelpText="All Musics"
+                         Margin="20,5,0,0">
+                <MenuFlyoutItem x:Name="MusicsViewFlyOut"
+                                Text="View"
+                                 Click="MusicsViewFlyOut_Click"/>
+                <MenuFlyoutItem x:Name="MusicsNewFluOut"
+                                Text="Add"
+                                 Click="MusicsNewFluOut_Click"/>
+            </MenuBarItem>
+            <MenuBarItem Name="CollectionsMenuItem"
+                         Title="Collections"
+                         Width="100"
+                         FontFamily="Verdana"
+                         AutomationProperties.HelpText="Go to Collections"
+                         Margin="20,5,0,0">
+                <MenuFlyoutItem x:Name="CollectionViewFlyout"
+                                Text="View"
+                                Click="CollectionViewFlyout_Click"
+                                />
+                <MenuFlyoutItem x:Name="CollectionNewFlyout"
+                                Text="View"
+                                Click="CollectionNewFlyout_Click"/>
+
+            </MenuBarItem>
+        </MenuBar>
+        <Frame Grid.Row="1"
+               x:Name="MainFrame"/>
     </Grid>
 </Page>
