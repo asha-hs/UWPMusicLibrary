@@ -31,10 +31,14 @@
                   Name="AllMusicGrid">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Song">
-                    <Image x:Name="MusicThubnailImage"
+                    <StackPanel Orientation="Vertical" Margin="2,2,2,2">
+                        <TextBlock Text="{x:Bind FileName}" Name="MusicNameText"/>
+                        <Image x:Name="MusicThubnailImage"
                            Width="200"
                            Tapped="MusicThubnailImage_Tapped"
                            Source="{x:Bind Thumbnail}"/>
+                    </StackPanel>
+                    
                 </DataTemplate>
             </GridView.ItemTemplate>
             

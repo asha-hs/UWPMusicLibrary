@@ -38,8 +38,8 @@ namespace UWPMusicLibrary
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-           // string context = "musics";
-            this.MainFrame.Navigate(typeof(AllMusicDisplayPage));
+            string context = "AllMusic";
+            this.MainFrame.Navigate(typeof(AllMusicDisplayPage),context);
         }
 
         private void CollectionViewFlyout_Click(object sender, RoutedEventArgs e)
@@ -54,46 +54,20 @@ namespace UWPMusicLibrary
 
         private void MusicsViewFlyOut_Click(object sender, RoutedEventArgs e)
         {
-
+            string context = "AllMusic";
+            this.MainFrame.Navigate(typeof(AllMusicDisplayPage),context);
         }
 
-        private void MusicsNewFluOut_Click(object sender, RoutedEventArgs e)
+        private async void MusicsNewFluOut_Click(object sender, RoutedEventArgs e)
         {
+            // allow the user to add new music
+            await SongManager.AddNewMusic();
+
+            //reload all music page to reflect the change
+            this.MainFrame.Navigate(typeof(AllMusicDisplayPage));
 
         }
 
-        /*    protected override async void OnNavigatedTo(NavigationEventArgs e)
-            {
-
-                QueryOptions queryOption = new QueryOptions
-            (CommonFileQuery.OrderByTitle, new string[] { ".mp3", ".mp4", ".wma" });
-
-                queryOption.FolderDepth = FolderDepth.Deep;
-
-                Queue<IStorageFolder> folders = new Queue<IStorageFolder>();
-
-                var files = await KnownFolders.MusicLibrary.CreateFileQueryWithOptions
-                  (queryOption).GetFilesAsync();
-                //StorageFolder musicLib = KnownFolders.MusicLibrary;
-                //var files = await musicLib.GetFilesAsync();
-                foreach(var file in files)
-                {
-                    var musicProperties = await file.Properties.GetMusicPropertiesAsync();
-                    var artist = musicProperties.Artist;
-                    if (artist == "")
-                        artist = "Unknown";
-                    var album = musicProperties.Album;
-                    if (album == "")
-                        album = "Unknown";
-
-                    var thumbnail = await file.GetThumbnailAsync(ThumbnailMode.SingleItem);
-                    BitmapImage thumbnailImage = new BitmapImage();
-                    await thumbnailImage.SetSourceAsync(thumbnail);
-
-                    MusicList.Add(new Song { FileName = file.DisplayName, Artist = artist, Album = album, FilePath = file.Path, Thumbnail = thumbnailImage });
-                }
-            }*/
-
-
+       
     }
 }
