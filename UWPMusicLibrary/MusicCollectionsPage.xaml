@@ -1,0 +1,82 @@
+﻿<Page
+    x:Class="UWPMusicLibrary.MusicCollectionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPMusicLibrary"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:UWPMusicLibrary.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <RelativePanel Grid.Row="0">
+            <TextBlock Name ="CollectionsTextbox" 
+                       RelativePanel.AlignHorizontalCenterWithPanel="true"
+                       Text="MusicCollections"
+                       FontFamily="Verdana"
+                       FontSize="30"
+                       FontWeight="Bold"
+                       Height="45"
+                       Width="300"
+                       TextDecorations="Underline"
+                       Margin="10,15,0,0"
+                       HorizontalTextAlignment="Center"/>
+            <Button Name ="SelectCollection" 
+                    RelativePanel.AlignLeftWithPanel="true"
+                    Content="Select"
+                    Visibility="Collapsed"
+                    
+                    Width="100"
+                    Click="SelectCollection_Click"
+                    VerticalAlignment="Center"
+                    Margin="20,10,0,0"
+                    CornerRadius="5">
+            </Button>
+            <Button Name ="DeleteCollection" 
+                    RelativePanel.RightOf="SelectCollection"
+                    Content="Delete"
+                    Visibility="Collapsed"
+                    Width="100"
+                    Click="DeleteCollection_Click"
+                    VerticalAlignment="Center"
+                    Margin="5,10,0,0"
+                    CornerRadius="5">
+            </Button>
+            <Button Name ="Cancel" 
+                    RelativePanel.RightOf="DeleteCollection"
+                    Content="Cancel"
+                    Visibility="Collapsed"
+                    Width="100"
+                    Click="Cancel_Click"
+                    VerticalAlignment="Center"
+                    Margin="5,10,0,0"
+                    CornerRadius="5">
+            </Button>
+        </RelativePanel>
+        <GridView Name="CollectionsGrid"
+                  IsTapEnabled="True"
+                  Tapped="CollectionsGrid_Tapped"
+                  Grid.Row="1"
+                  SelectionMode="Single"
+                  ItemsSource="{x:Bind AllMusicCollections}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="model:MusicCollection">
+                    <StackPanel>
+                        <Image x:Name="CollectionImage"
+                               Width="200"
+                               Source="{x:Bind CoverArtThumbnail}"></Image>
+                        <TextBlock x:Name="CollectionName"
+                                   Text="{x:Bind Name}"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalTextAlignment="Center"
+                                   Foreground="Black"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

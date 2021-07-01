@@ -116,6 +116,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddNewCollectionPage.xaml.cs">
+      <DependentUpon>AddNewCollectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllMusicDisplayPage.xaml.cs">
       <DependentUpon>AllMusicDisplayPage.xaml</DependentUpon>
     </Compile>
@@ -125,8 +128,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\MusicCollection.cs" />
     <Compile Include="Model\Song.cs" />
     <Compile Include="Model\SongManager.cs" />
+    <Compile Include="MusicCollectionsPage.xaml.cs">
+      <DependentUpon>MusicCollectionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddNewCollectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllMusicDisplayPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +167,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MusicCollectionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

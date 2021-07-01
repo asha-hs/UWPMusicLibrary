@@ -44,12 +44,12 @@ namespace UWPMusicLibrary
 
         private void CollectionViewFlyout_Click(object sender, RoutedEventArgs e)
         {
-
+            this.MainFrame.Navigate(typeof(MusicCollectionsPage));
         }
 
         private void CollectionNewFlyout_Click(object sender, RoutedEventArgs e)
         {
-
+            this.MainFrame.Navigate(typeof(AddNewCollectionPage));
         }
 
         private void MusicsViewFlyOut_Click(object sender, RoutedEventArgs e)
