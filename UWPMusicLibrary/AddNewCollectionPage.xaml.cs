@@ -90,7 +90,6 @@ namespace UWPMusicLibrary
                 Name = albumName,
                 CoverPhotoFilePath = coverArt.FilePath
 
-
             };
             bool retval = true;
             retval = await SongManager.AddModifyMusicCollection(context, newCollection, SelectedMusic);
@@ -123,7 +122,8 @@ namespace UWPMusicLibrary
 
         private void SelectedMusic_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            //just show the flyout
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
         }
     }
 }
