@@ -54,7 +54,7 @@ namespace UWPMusicLibrary
             if(loaded && MusicList.Count == 0)
             {
                 NotifyUser("No Music found in the MusicLibrary,\n" +
-                    " use the ADD option of the Photos Menu to add music to library");
+                    " use the ADD option of the AllMusic Menu to add music to library");
                
             }
             else if(!loaded)
@@ -70,10 +70,7 @@ namespace UWPMusicLibrary
             messageDialog.Commands.Add(new UICommand("OK"));
             await messageDialog.ShowAsync();
         }
-        private void MusicThubnailImage_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            
-        }
+      
 
         private async void AllMusicGrid_ItemClick(object sender, ItemClickEventArgs e)
         {

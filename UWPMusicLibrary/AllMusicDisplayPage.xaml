@@ -30,6 +30,7 @@
                   IsTapEnabled="True"
                   ItemsSource="{x:Bind MusicList}"
                   Name="AllMusicGrid"
+                  IsItemClickEnabled="True"
                   ItemClick="AllMusicGrid_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Song">
@@ -37,7 +38,7 @@
                         <TextBlock Text="{x:Bind FileName}" Name="MusicNameText"/>
                         <Image x:Name="MusicThubnailImage"
                            Width="200"
-                           Tapped="MusicThubnailImage_Tapped"
+                          
                            Source="{x:Bind Thumbnail}"/>
                        
                     </StackPanel>
