@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UWPMusicLibrary.Model;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Search;
@@ -71,6 +72,15 @@ namespace UWPMusicLibrary
         }
         private void MusicThubnailImage_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            
+        }
+
+        private async void AllMusicGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var song = (Song)e.ClickedItem;
+            StorageFile file = await StorageFile.GetFileFromPathAsync(song.FilePath);
+            
+            AppMediaElement.Source = MediaSource.CreateFromStorageFile(file);
 
         }
     }

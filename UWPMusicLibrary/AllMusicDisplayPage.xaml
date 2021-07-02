@@ -13,6 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <MediaPlayerElement x:Name="AppMediaElement" AutoPlay="True"></MediaPlayerElement>
         <RelativePanel Grid.Row="0">
             <TextBlock x:Name="TitleTextBlock"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
@@ -28,7 +29,8 @@
         <GridView Grid.Row="1"
                   IsTapEnabled="True"
                   ItemsSource="{x:Bind MusicList}"
-                  Name="AllMusicGrid">
+                  Name="AllMusicGrid"
+                  ItemClick="AllMusicGrid_ItemClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Song">
                     <StackPanel Orientation="Vertical" Margin="2,2,2,2">
@@ -37,6 +39,7 @@
                            Width="200"
                            Tapped="MusicThubnailImage_Tapped"
                            Source="{x:Bind Thumbnail}"/>
+                       
                     </StackPanel>
                     
                 </DataTemplate>
