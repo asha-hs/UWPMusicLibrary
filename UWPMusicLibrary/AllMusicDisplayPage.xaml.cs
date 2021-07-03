@@ -76,8 +76,13 @@ namespace UWPMusicLibrary
         {
             var song = (Song)e.ClickedItem;
             StorageFile file = await StorageFile.GetFileFromPathAsync(song.FilePath);
+
+            AppMediaElement.Width = 200;
+            AppMediaElement.HorizontalAlignment = HorizontalAlignment.Left;
+            AppMediaElement.AreTransportControlsEnabled = true;
             
             AppMediaElement.Source = MediaSource.CreateFromStorageFile(file);
+           
 
         }
     }

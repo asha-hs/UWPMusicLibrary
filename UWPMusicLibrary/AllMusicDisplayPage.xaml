@@ -31,7 +31,8 @@
                   ItemsSource="{x:Bind MusicList}"
                   Name="AllMusicGrid"
                   IsItemClickEnabled="True"
-                  ItemClick="AllMusicGrid_ItemClick">
+                  ItemClick="AllMusicGrid_ItemClick"
+                  >
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="model:Song">
                     <StackPanel Orientation="Vertical" Margin="2,2,2,2">
